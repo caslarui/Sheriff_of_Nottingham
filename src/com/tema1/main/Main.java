@@ -11,15 +11,9 @@ public final class Main {
         GameInputLoader gameInputLoader = new GameInputLoader(args[0], args[1]);
         GameInput gameInput = gameInputLoader.load();
 
-
-
         Game joc = new Game(gameInput.getRounds(), gameInput.getPlayerNames(), gameInput.getAssetIds());
-
-        System.out.println(joc.getRounds());
-//        System.out.println(joc.getPlayers().toString());
-        System.out.println((joc.getAllCards()));
         joc.startGame();
-//        System.out.println(joc.getPlayers().toString());
+        joc.finalScore();
 
 
 
