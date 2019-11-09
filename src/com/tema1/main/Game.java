@@ -202,7 +202,7 @@ public final class Game {
       case CHEESE:
         return QB_CHEESE;
       case BREAD:
-        return QB_APPLE - 1;
+        return QB_BREAD;
       case CHICKEN:
         return QB_CHICKEN;
       case TOMATO:
@@ -248,29 +248,29 @@ public final class Game {
         if (isIllegal(card.getKey())) {
           int bonus = getGoodProfit(card.getKey()) * card.getValue();
           switch (card.getKey()) {
-            case 20:
-              addToUpdatedList(1, 3 * card.getValue(), player.getPlayerId());
-              bonus += (3 * getGoodProfit(1)) * card.getValue();
+            case SILK:
+              addToUpdatedList(CHEESE, 3 * card.getValue(), player.getPlayerId());
+              bonus += (3 * getGoodProfit(CHEESE)) * card.getValue();
               break;
-            case 21:
-              addToUpdatedList(3, 2 * card.getValue(), player.getPlayerId());
-              bonus += 2 * getGoodProfit(3) * card.getValue();
+            case PEPPER:
+              addToUpdatedList(CHICKEN, 2 * card.getValue(), player.getPlayerId());
+              bonus += 2 * getGoodProfit(CHICKEN) * card.getValue();
               break;
-            case 22:
-              addToUpdatedList(2, 2 * card.getValue(), player.getPlayerId());
-              bonus += 2 * getGoodProfit(2) * card.getValue();
+            case BARREL:
+              addToUpdatedList(BREAD, 2 * card.getValue(), player.getPlayerId());
+              bonus += 2 * getGoodProfit(BREAD) * card.getValue();
               break;
-            case 23:
-              addToUpdatedList(7, 4 * card.getValue(), player.getPlayerId());
-              bonus += 4 * getGoodProfit(7) * card.getValue();
+            case BEER:
+              addToUpdatedList(WINE, 4 * card.getValue(), player.getPlayerId());
+              bonus += 4 * getGoodProfit(WINE) * card.getValue();
               break;
-            case 24:
-              addToUpdatedList(4, 2 * card.getValue(), player.getPlayerId());
-              addToUpdatedList(6, 3 * card.getValue(), player.getPlayerId());
-              addToUpdatedList(3, card.getValue(), player.getPlayerId());
+            case SEAFOOD:
+              addToUpdatedList(TOMATO, 2 * card.getValue(), player.getPlayerId());
+              addToUpdatedList(POTATO, 3 * card.getValue(), player.getPlayerId());
+              addToUpdatedList(CHICKEN, card.getValue(), player.getPlayerId());
 
-              bonus += (2 * getGoodProfit(4) + 3 * getGoodProfit(6) + getGoodProfit(3))
-                      * card.getValue();
+              bonus += (2 * getGoodProfit(TOMATO) + 3 * getGoodProfit(POTATO)
+                                                  + getGoodProfit(CHICKEN)) * card.getValue();
               break;
             default:
               bonus += 0;
